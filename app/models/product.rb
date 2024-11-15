@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :stock, presence: true
+  has_one_attached :image
   def self.ransackable_associations(auth_object = nil)
     ["category"]
   end
