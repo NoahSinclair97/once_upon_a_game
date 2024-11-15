@@ -66,3 +66,8 @@ gem "pundit"
 gem "draper"
 gem "sassc-rails"
 gem "ruby-apicalypse"
+gem "bootstrap", "~> 5.0"
+gem "cssbundling-rails"
+gem "popper"
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'rails-ujs', '~> 0.1.0'
