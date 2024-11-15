@@ -6,6 +6,8 @@ ActiveAdmin.register Product do
   # Uncomment all parameters which should be permitted for assignment
   #
    permit_params :name, :price, :description, :stock, :category_id, :image
+
+   remove_filter :image_attachment, :image_blob
    form do |f|
     f.semantic_errors
     f.inputs
@@ -22,5 +24,4 @@ ActiveAdmin.register Product do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-
 end
