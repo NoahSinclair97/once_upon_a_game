@@ -11,6 +11,7 @@ ActiveAdmin.register Product do
    form do |f|
     f.semantic_errors
     f.inputs
+    f.input :image, as: :file
     f.inputs do
       f.input :image, as: :file, hint: f.object.image.present? ? image_tag(f.object.image) : ""
     end

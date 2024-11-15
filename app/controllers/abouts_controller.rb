@@ -1,9 +1,7 @@
 class AboutsController < InheritedResources::Base
 
-  private
-
-    def about_params
-      params.require(:about).permit(:info)
+    def aboutus
+      @about = About.order("created_at").last
     end
 
 end
