@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
 
 Product.destroy_all
 Category.destroy_all
@@ -25,9 +26,9 @@ games.each do |game|
   product = Product.create!(
     name: game[0],
     price: game[1],
-    description: "TBD",
+    description: Faker::TvShows::AquaTeenHungerForce.quote,
     stock: 10,
-    category_id: Category.find_or_create_by!(name: "RPG").id
+    category_id: Category.find_or_create_by!(name: Faker::Game.genre).id
   )
   begin
     product.photos.attach(io: URI.open("#{game[2]}"), filename: "#{game[2]}")
