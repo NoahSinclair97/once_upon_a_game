@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "abouts/aboutus"
+  resources :abouts
   resources :orders
   resources :customers
   resources :product_carts
