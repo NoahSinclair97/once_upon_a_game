@@ -1,8 +1,7 @@
 <div id="<%= dom_id product %>">
+  <%= image_tag url_for(product.image), size: "200x200" if product.image.attached? %>
   <p>
-    <%= image_tag url_for(product.image), size: "200x200" if product.image.attached? %>
-    <strong>Name:</strong>
-    <%= product.name %>
+    <%= link_to product.name, product %>
   </p>
 
   <p>

@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require 'faker'
+require 'open-uri'
 
 Product.destroy_all
 Category.destroy_all
@@ -30,14 +31,14 @@ games.each do |game|
     stock: 10,
     category_id: Category.find_or_create_by!(name: Faker::Game.genre).id
   )
-  begin
-    product.photos.attach(io: URI.open("#{game[2]}"), filename: "#{game[2]}")
-  rescue
-    puts "Bad data"
+  if game[2] != "n/a"
+    product.image.attach(io: URI.open("#{game[2]}"), filename: "#{game[2]}")
+  else
+    product.image.attach(io: File.open(File.join(Rails.root, 'app/assets/images/na.png')), filename: 'na.png')
   end
 end
-#AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
-#User.create!(email: 'admin@example.com', password: 'password', password_confirmation:  'password')
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+User.create!(email: 'admin@example.com', password: 'password', password_confirmation:  'password')
 #api_key = '79c787a56011d1435235f556e6105b539b42febb'
 #base_url = "https://www.giantbomb.com/api/game/[guid]/?api_key=#{api_key}"
 #api_endpoint = 'https://api.igdb.com/v4/games'
