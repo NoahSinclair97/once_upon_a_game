@@ -1,11 +1,19 @@
-<div style="display:block" id="albumDiv">
-  <%= search_form_for(@product_query, url: "/products/search", method: :get) do |f| %>
-    <%= f.search_field :name_cont %>
-    <%= hidden_field_tag(:type, "product") %>
-    <%= f.submit %>
-  <% end %>
-
-  <% @product_result.each do |r|%>
-    <p><%= link_to r.name, r, :class => "btn btn-default" %></p>
-  <% end %>
+<div class="container">
+  <h1>Search</h1>
+  <hr/>
+  <div>
+    <%= search_form_for(@product_query, url: "/products/search", method: :get) do |f| %>
+      <%= f.search_field :name_cont %>
+      <%= hidden_field_tag(:type, "product") %>
+      <%= select_tag :category, options_from_collection_for_select(@categories, 'id', 'name'), include_blank: "All" %>
+      <%= f.submit %>
+    <% end %>
+    <% if @product_result.count == 0 %>
+      <p>No Results found</p>
+    <% else %>
+      <% @product_result.each do |product| %>
+        <p><%= link_to product.name, product, :class => "btn btn-default" %></p>
+    <% end %>
+    <% end %>
+  </div>
 </div>

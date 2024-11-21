@@ -1,8 +1,6 @@
 class ProductsController < InheritedResources::Base
     def index
       @products = Product.page(params[:page]).per(10)
-      @product_query = @products.ransack(params[:q])
-      @product_result = @product_query.result
     end
 
     def show
@@ -11,6 +9,11 @@ class ProductsController < InheritedResources::Base
 
     def search
       @product_query = Product.ransack(params[:q])
-      @product_result = @product_query.result
+      if params[:category] == ""
+        @product_result = @product_query.result
+      else
+        @product_result = @product_query.result.where(category_id: params[:category])
+      end
+      @categories = Category.all()
     end
 end
