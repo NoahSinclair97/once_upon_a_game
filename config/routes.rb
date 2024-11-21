@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "abouts/aboutus"
+  get "products/search"
   resources :abouts
   resources :orders
   resources :customers

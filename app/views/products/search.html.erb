@@ -1,0 +1,11 @@
+<div style="display:block" id="albumDiv">
+  <%= search_form_for(@product_query, url: "/products/search", method: :get) do |f| %>
+    <%= f.search_field :name_cont %>
+    <%= hidden_field_tag(:type, "product") %>
+    <%= f.submit %>
+  <% end %>
+
+  <% @product_result.each do |r|%>
+    <p><%= link_to r.name, r, :class => "btn btn-default" %></p>
+  <% end %>
+</div>

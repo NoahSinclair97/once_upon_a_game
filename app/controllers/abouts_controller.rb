@@ -1,5 +1,5 @@
 class AboutsController < InheritedResources::Base
-    def aboutus
+    def index
       @about = About.order("created_at").last
     end
 end
