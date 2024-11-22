@@ -1,5 +1,7 @@
-<div id="<%= dom_id product %>">
+<div class="col-md-4">
+  <a href="products/<%= product.id %>">
   <%= image_tag url_for(product.image), size: "200x200" if product.image.attached? %>
+  </a>
   <p>
     <%= link_to product.name, product %>
   </p>
@@ -8,20 +10,4 @@
     <strong>Price:</strong>
     <%= product.price %>
   </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-  <p>
-    <strong>Stock:</strong>
-    <%= product.stock %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= product.category_id %>
-  </p>
-
 </div>

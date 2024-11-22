@@ -5,15 +5,22 @@
     <%= search_form_for(@product_query, url: "/products/search", method: :get) do |f| %>
       <%= f.search_field :name_cont %>
       <%= hidden_field_tag(:type, "product") %>
-      <%= select_tag :category, options_from_collection_for_select(@categories, 'id', 'name'), include_blank: "All" %>
+      <%= select_tag :category, options_from_collection_for_select(@categories, 'id', 'name',""), include_blank: "All" %>
       <%= f.submit %>
     <% end %>
-    <% if @product_result.count == 0 %>
-      <p>No Results found</p>
-    <% else %>
-      <% @product_result.each do |product| %>
-        <p><%= link_to product.name, product, :class => "btn btn-default" %></p>
-    <% end %>
-    <% end %>
+    <div class="row">
+      <% if @product_result.count == 0 %>
+        <p>No Results found</p>
+      <% else %>
+        <% @product_result.each do |product| %>
+          <div class="col-md-4">
+            <p class="text-center"><%= image_tag url_for(product.image), size: "200x200" if product.image.attached? %></p>
+            <p class="text-center"><%= link_to product.name, product, :class => "text-center" %></p>
+            <p class="text-center"><%= product.price %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
+  <%= paginate @product_result %>
 </div>
