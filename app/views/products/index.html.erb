@@ -1,16 +1,9 @@
 <div class="container">
-  <p style="color: green"><%= notice %></p>
-
-  <% content_for :title, "Products" %>
-
   <h1>Products</h1>
   <hr/>
-
-  <div id="products">
-    <div class="row">
-        <%= render partial: "product", collection: @products %>
-    </div>
-  <%= paginate @products %>
+  <div class="row">
+      <%= render partial: "product", collection: @products %>
   </div>
+  <%= paginate @products %>
 </div>
 

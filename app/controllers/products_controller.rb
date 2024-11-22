@@ -13,6 +13,9 @@ class ProductsController < InheritedResources::Base
         @product_result = @product_query.result.page(params[:page]).per(12)
       else
         @product_result = @product_query.result.where(category_id: params[:category]).page(params[:page]).per(12)
+        if params[:q] == ""
+          @product_result = Product.all().where(category_id: params[:category]).page(params[:page]).per(12)
+        end
       end
       @categories = Category.all()
     end
