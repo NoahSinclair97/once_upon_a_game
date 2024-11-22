@@ -1,7 +1,7 @@
 <div class="col-md-4">
   <p class="text-center">
     <a href="products/<%= product.id %>">
-      <%= image_tag url_for(product.image), size: "200x200" if product.image.attached? %>
+      <%= image_tag url_for(product.image), size: "200x200", alt: product.name if product.image.attached? %>
     </a>
   </p>
   <p class="text-center">
@@ -10,6 +10,6 @@
 
   <p class="text-center">
     <strong>Price:</strong>
-    <%= product.price %>
+    $<%=product.price %>
   </p>
 </div>

@@ -1,7 +1,58 @@
-<div class="container">
-  <p style="color: green"><%= notice %></p>
-    <%= render "productpage" %>
-  <div>
-    <%= link_to "Back to products", products_path %>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          Toggle Sidebar
+        </button>
+        <div class="collapse show" id="sidebarMenu">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/products">
+                <span data-feather="home"></span>
+                Products
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products/search">
+                <span data-feather="file"></span>
+                Search
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart"></span>
+                Orders
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="users"></span>
+                Sign In
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/abouts">
+                <span data-feather="bar-chart-2"></span>
+                About Us
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1><%= @product.name %></h1>
+      </div>
+      <hr/>
+      <div class="container">
+        <p style="color: green"><%= notice %></p>
+        <%= render "productpage" %>
+      </div>
+    </main>
   </div>
 </div>
