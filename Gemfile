@@ -67,7 +67,6 @@ gem "draper"
 gem "sassc-rails"
 gem "ruby-apicalypse"
 gem 'bootstrap', '~> 5.3.3'
-gem 'dartsass-sprockets'
 gem "cssbundling-rails"
 gem "popper"
 gem "jquery-rails"

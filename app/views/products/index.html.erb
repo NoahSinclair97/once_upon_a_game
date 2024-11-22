@@ -3,11 +3,21 @@
     <!-- Sidebar -->
     <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
       <div class="position-sticky">
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-          Toggle Sidebar
-        </button>
         <div class="collapse show" id="sidebarMenu">
           <ul class="nav flex-column">
+            <li class="nav-item">
+                <% if user_signed_in? %>
+                <div> Welcome <%= current_user.email %> </div>
+                  <%= button_to "Sign out", destroy_user_session_path, method: :delete, :class => "btn text-primary" %>
+                <% else %>
+                <a class="nav-link" href="/users/sign_in">
+                  <i class="bi bi-person"></i>
+                  Sign In
+                </a>
+                <% end %>
+              </a>
+            </li>
+            <br/>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/products">
                 <span data-feather="home"></span>
@@ -20,18 +30,14 @@
                 Search
               </a>
             </li>
+            <% if user_signed_in? %>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="shopping-cart"></span>
                 Orders
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="users"></span>
-                Sign In
-              </a>
-            </li>
+            <% end %>
             <li class="nav-item">
               <a class="nav-link" href="/abouts">
                 <span data-feather="bar-chart-2"></span>
