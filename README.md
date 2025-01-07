@@ -1,24 +1,18 @@
-# README
+# ONCE UPON A GAME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Author: Noah Sinclair**
 
-Things you may want to cover:
+This project is an eCommerce website for a fake game company called once upon a game where customers can buy physical copies of video games.
 
-* Ruby version
+## How it's made:
+**Languages**: Ruby
 
-* System dependencies
+The app was built in Visual Studio Code using Ruby on Rails. It contains multiple gems to be installed, uses active storage and active admin for storing and editing the content of the website. For users sign in and log in/off it uses the devise gem, and for the payment details a test version of stripe. Users are able to browse, search, and sort the products and add them to a cart that's in session. Once the user is done browsing and all items are added to the cart, the user is able to check out using stripe, and check all their orders.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Usage:
+- Go to the main page of the site.
+- Sign in.
+- Browse products.
+- Add items to the cart.
+- Click the cart and checkout with the items.
+- Check the orders confirm the order was made.
